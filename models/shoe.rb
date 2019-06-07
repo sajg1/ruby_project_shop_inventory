@@ -17,7 +17,7 @@ class Shoe
 
   end
 
-#CREATE
+# CREATE
 
   def save()
     sql = "INSERT INTO shoes
@@ -32,4 +32,20 @@ class Shoe
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
+
+# READ
+
+  def self.all()
+    sql = "SELECT * FROM shoes"
+    shoes_hash = SqlRunner.run(sql)
+    shoes_hash.map {|shoe| Shoe.new(shoe)}
+  end
+
+  def self.find_by_id(id)
+    sql = "SELECT * FROM shoes WHERE id = $1"
+    values = [id]
+    shoe = SqlRunner.run(sql, values).first
+    return Shoe.new(shoe)
+  end
+
 end
