@@ -33,6 +33,14 @@ class Shoe
     @id = result['id'].to_i
   end
 
+# DELETE
+
+  def delete()
+    sql = "DELETE FROM shoes WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 # READ
 
   def self.all()
