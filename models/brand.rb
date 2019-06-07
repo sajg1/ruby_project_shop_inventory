@@ -25,6 +25,14 @@ class Brand
     @id = result['id'].to_i
   end
 
+# DELETE
+
+  def delete()
+    sql = "DELETE FROM brands WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 # READ
 
   def self.all()
@@ -33,6 +41,7 @@ class Brand
     brands.map {|brand| Brand.new(brand)}
   end
 
+# Ask about error when an id that doesn't exist is typed in
     def self.find_by_id(id)
       sql = "SELECT * FROM brands WHERE id = $1"
       values = [id]
@@ -42,10 +51,12 @@ class Brand
     end
 
 #DELETE
+
   def self.delete_all()
     sql = "DELETE FROM brands"
     SqlRunner.run(sql)
   end
+
 
 
 end
