@@ -1,5 +1,6 @@
 require("pry-byebug")
 require_relative('../models/brand')
+require_relative('../models/shoe')
 
 Brand.delete_all()
 
@@ -19,14 +20,13 @@ brand1.save()
 brand2.save()
 brand3.save()
 
-binding.pry
-
 shoe1 = Shoe.new({
   'name' => 'Air Zoom Pegasus 36',
   'type' => 'Running',
   'stock_quantity' => 20,
   'stock_cost' => 25,
-  'selling_price' => 69
+  'selling_price' => 69,
+  'brand_id' => brand1.id
   })
 
 shoe2 = Shoe.new({
@@ -34,7 +34,8 @@ shoe2 = Shoe.new({
   'type' => 'Basketball',
   'stock_quantity' => 5,
   'stock_cost' => 30,
-  'selling_price' => 89
+  'selling_price' => 89,
+  'brand_id' => brand1.id
   })
 
 shoe3 = Shoe.new({
@@ -42,7 +43,8 @@ shoe3 = Shoe.new({
   'type' => 'Boot',
   'stock_quantity' => 10,
   'stock_cost' => 40,
-  'selling_price' => 66
+  'selling_price' => 66,
+  'brand_id' => brand3.id
   })
 
 shoe4 = Shoe.new({
@@ -50,10 +52,15 @@ shoe4 = Shoe.new({
   'type' => 'Football Boot',
   'stock_quantity' => 20,
   'stock_cost' => 20,
-  'selling_price' => 59
+  'selling_price' => 59,
+  'brand_id' => brand2.id
   })
 
+shoe1.save()
+shoe2.save()
+shoe3.save()
+shoe4.save()
 
-
+binding.pry
 
 nil
