@@ -33,6 +33,13 @@ class Brand
     SqlRunner.run(sql, values)
   end
 
+  def shoes()
+    sql = "SELECT * FROM shoes WHERE brand_id = $1"
+    values = [@id]
+    shoes_hash = SqlRunner.run(sql, values)
+    shoes_hash.map {|shoe| Shoe.new(shoe)}
+  end
+
 # READ
 
   def self.all()
