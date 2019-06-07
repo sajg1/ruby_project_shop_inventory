@@ -33,6 +33,8 @@ class Brand
     SqlRunner.run(sql, values)
   end
 
+# READ
+
   def shoes()
     sql = "SELECT * FROM shoes WHERE brand_id = $1"
     values = [@id]

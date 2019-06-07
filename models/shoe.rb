@@ -49,6 +49,7 @@ class Shoe
     shoes_hash.map {|shoe| Shoe.new(shoe)}
   end
 
+  # Ask about error when an id that doesn't exist is typed in
   def self.find_by_id(id)
     sql = "SELECT * FROM shoes WHERE id = $1"
     values = [id]
