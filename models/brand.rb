@@ -6,8 +6,10 @@ class Brand
 
   def initialize(options)
     @name = options['name']
-    @id = options['id'] if options['id']
+    @id = options['id'].to_i if options['id']
   end
+
+# CREATE
 
   def save()
     sql = "INSERT INTO brands
@@ -23,14 +25,27 @@ class Brand
     @id = result['id'].to_i
   end
 
+# READ
+
   def self.all()
     sql = "SELECT * FROM brands"
     brands = SqlRunner.run(sql)
     brands.map {|brand| Brand.new(brand)}
   end
 
+    def self.find_by_id(id)
+      sql = "SELECT * FROM brands WHERE id = $1"
+      values = [id]
+      result = SqlRunner.run(sql, values).first
+      brand = Brand.new(result)
+      return brand
+    end
+
+#DELETE
   def self.delete_all()
     sql = "DELETE FROM brands"
     SqlRunner.run(sql)
   end
+
+
 end
