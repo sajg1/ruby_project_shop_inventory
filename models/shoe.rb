@@ -55,6 +55,11 @@ class Shoe
     shoes_hash.map {|shoe| Shoe.new(shoe)}
   end
 
+# DELETE
 
+  def self.delete_all()
+    sql = "DELETE FROM shoes"
+    SqlRunner.run(sql)
+  end
 
 end
