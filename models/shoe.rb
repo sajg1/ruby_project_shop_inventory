@@ -48,4 +48,13 @@ class Shoe
     return Shoe.new(shoe)
   end
 
+  def self.find_by_brand(brand_id)
+    sql = "SELECT * FROM shoes WHERE brand_id = $1"
+    values = [brand_id]
+    shoes_hash = SqlRunner.run(sql, values)
+    shoes_hash.map {|shoe| Shoe.new(shoe)}
+  end
+
+
+
 end
