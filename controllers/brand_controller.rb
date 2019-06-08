@@ -10,6 +10,12 @@ get '/brands' do
   erb(:"brands/index")
 end
 
+post '/brands' do
+  @brand = Brand.new(params)
+  @brand.save()
+  redirect('/brands')
+end
+
 get '/brands/new' do
   erb(:"brands/new")
 end
