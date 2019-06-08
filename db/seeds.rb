@@ -56,10 +56,50 @@ shoe4 = Shoe.new({
   'brand_id' => brand2.id
   })
 
+shoe5 = Shoe.new({
+  'name' => 'Premium 6 inch Boot',
+  'type' => 'Boot',
+  'stock_quantity' => 15,
+  'stock_cost' => 30,
+  'selling_price' => 100,
+  'brand_id' => brand3.id
+  })
+
+shoe6 = Shoe.new({
+  'name' => 'SB Dunk Low Pro',
+  'type' => 'Skateboarding',
+  'stock_quantity' => 25,
+  'stock_cost' => 15,
+  'selling_price' => 75,
+  'brand_id' => brand1.id
+  })
+
+shoe7 = Shoe.new({
+  'name' => 'Power Perfect 3',
+  'type' => 'Weightlifting',
+  'stock_quantity' => 5,
+  'stock_cost' => 30,
+  'selling_price' => 110,
+  'brand_id' => brand2.id
+  })
+
+shoe8 = Shoe.new({
+  'name' => 'FI Impact 3',
+  'type' => 'Golf',
+  'stock_quantity' => 2,
+  'stock_cost' => 35,
+  'selling_price' => 95,
+  'brand_id' => brand1.id
+  })
+
 shoe1.save()
 shoe2.save()
 shoe3.save()
 shoe4.save()
+shoe5.save()
+shoe6.save()
+shoe7.save()
+shoe8.save()
 
 binding.pry
 

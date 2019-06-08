@@ -3,7 +3,7 @@ DROP TABLE brands;
 
 CREATE TABLE brands (
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255)
 );
 
 CREATE TABLE shoes (

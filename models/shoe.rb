@@ -41,6 +41,13 @@ class Shoe
     SqlRunner.run(sql, values)
   end
 
+  def brand()
+    sql = "SELECT * FROM brands WHERE id = $1"
+    values = [@brand_id]
+    product_brand = SqlRunner.run(sql, values).first
+    return Brand.new(product_brand)
+  end
+
 # READ
 
   def self.all()
