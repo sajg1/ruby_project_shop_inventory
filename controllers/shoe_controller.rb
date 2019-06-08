@@ -20,6 +20,14 @@ get '/shoes/new' do
   erb(:"shoes/new")
 end
 
+#CREATE
+
+post '/shoes' do
+  @shoe = Shoe.new(params)
+  @shoe.save()
+  redirect('/shoes')
+end
+
 #SHOW
 
 get '/shoes/:id' do
