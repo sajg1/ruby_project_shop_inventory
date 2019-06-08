@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("./brand")
 
 class Shoe
 
@@ -45,7 +46,7 @@ class Shoe
     sql = "SELECT * FROM brands WHERE id = $1"
     values = [@brand_id]
     product_brand = SqlRunner.run(sql, values).first
-    return Brand.new(product_brand)
+    return Brand.new(product_brand).name
   end
 
 # READ

@@ -2,7 +2,11 @@
 
 <% @shoes.each do |shoe| %>
 <p>Name: <%= shoe.name %> </p>
+<p>Brand: <%= shoe.brand %> </p>
 <p>Type: <%= shoe.type %> </p>
+<p>Stock Quantity: <%= shoe.stock_quantity %> </p>
+<p>Stock Cost: £<%= shoe.stock_cost %>  </p>
+<p>Selling Price: £<%= shoe.selling_price %>  </p>
 <hr>
 <hr>
 <% end %>
