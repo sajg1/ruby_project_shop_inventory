@@ -1,0 +1,17 @@
+<form action="/shoes" method="post">
+
+  <label for="product-name">Shoe Name: </label>
+  <input type="text" name="name" id="product-name">
+
+  <label for="brand-select">Select Brand: </label>
+  <select id="brand-select" name="brand_id">
+    <% @brands.each do |brand| %>
+      <option value="<%= brand.id %>"> <%= brand.name  %> </option>
+    <% end %>
+  </select>
+
+  <label for="shoe-type">Shoe Type: </label>
+  <input type="text" name="type" id="shoe-type">
+
+  <label for=""></label>
+</form>
