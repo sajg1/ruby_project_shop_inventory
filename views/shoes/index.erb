@@ -1,7 +1,7 @@
 <h1>Shoe Inventory</h1>
 
 <% @shoes.each do |shoe| %>
-<p>Name: <%= shoe.name %> </p>
+<p><a href="/shoes/<%= shoe.id %>">Name: <%= shoe.name %></a></p>
 <p>Brand: <%= shoe.brand %> </p>
 <p>Type: <%= shoe.type %> </p>
 <p>Stock Quantity: <%= shoe.stock_quantity %> </p>
