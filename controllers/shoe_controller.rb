@@ -25,7 +25,7 @@ end
 post '/shoes' do
   @shoe = Shoe.new(params)
   @shoe.save()
-  redirect('/shoes')
+  redirect('/shoes/')
 end
 
 #SHOW
