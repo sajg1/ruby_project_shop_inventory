@@ -67,6 +67,7 @@ class Shoe
 
   def add_stock(num)
     @stock_quantity += num
+    update()
   end
 
 # READ
