@@ -37,5 +37,10 @@ class ShoeTest < Minitest::Test
     assert_equal(69, @shoe1.selling_price)
   end
 
+  def test_add_stock
+    @shoe1.add_stock(5)
+    assert_equal(25, @shoe1.stock_quantity)
+  end
+
 
 end

@@ -34,6 +34,22 @@ class Shoe
     @id = result['id'].to_i
   end
 
+#UPDATE
+
+  def update()
+    sql = "UPDATE shoes SET
+    (
+      name, type, stock_quantity, stock_cost, selling_price, brand_id
+    )
+    =
+    (
+      $1, $2, $3, $4, $5, $6
+    )
+    WHERE id = $7"
+    values = [@name, @type, @stock_quantity, @stock_cost, @selling_price, @brand_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
 # DELETE
 
   def delete()
@@ -47,6 +63,10 @@ class Shoe
     values = [@brand_id]
     product_brand = SqlRunner.run(sql, values).first
     return Brand.new(product_brand).name
+  end
+
+  def add_stock(num)
+    @stock_quantity += num
   end
 
 # READ
