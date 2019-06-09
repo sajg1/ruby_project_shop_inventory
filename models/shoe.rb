@@ -65,9 +65,20 @@ class Shoe
     return Brand.new(product_brand).name
   end
 
+#ask about how to incorporate this
   def add_stock(num)
     @stock_quantity += num
     update()
+  end
+
+  def stock_level()
+    if @stock_quantity > 1
+      return "Low Stock"
+    elsif @stock_quantity > 10
+      return
+    else
+      return "Out of Stock"
+    end
   end
 
 # READ

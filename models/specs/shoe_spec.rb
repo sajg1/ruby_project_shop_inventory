@@ -10,7 +10,7 @@ class ShoeTest < Minitest::Test
     @shoe1 = Shoe.new({
       'name' => 'Air Zoom Pegasus 36',
       'type' => 'Running',
-      'stock_quantity' => 20,
+      'stock_quantity' => 0,
       'stock_cost' => 25,
       'selling_price' => 69
       })
@@ -26,7 +26,7 @@ class ShoeTest < Minitest::Test
   end
 
   def test_stock_quantity
-    assert_equal(20, @shoe1.stock_quantity)
+    assert_equal(0, @shoe1.stock_quantity)
   end
 
   def test_stock_cost
@@ -39,7 +39,11 @@ class ShoeTest < Minitest::Test
 
   def test_add_stock
     @shoe1.add_stock(5)
-    assert_equal(25, @shoe1.stock_quantity)
+    assert_equal(5, @shoe1.stock_quantity)
+  end
+
+  def test_stock_level
+    assert_equal("Out of Stock", @shoe1.stock_level)
   end
 
 
