@@ -3,7 +3,8 @@ require_relative('./shoe')
 
 class Brand
 
-  attr_reader :name, :id
+  attr_accessor :name
+  attr_reader :id
 
   def initialize(options)
     @name = options['name']
@@ -24,6 +25,14 @@ class Brand
     values = [@name]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
+  end
+
+# UPDATE
+
+  def update()
+    sql = "UPDATE brands SET name = $1 WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
 # DELETE

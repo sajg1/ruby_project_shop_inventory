@@ -4,6 +4,16 @@
 <p> Stock Quantity: <%= @shoe.stock_quantity %> </p>
 <p> Stock Cost: £<%= @shoe.stock_cost %> </p>
 <p> Selling Price: £<%= @shoe.selling_price %> </p>
+<hr>
+
+
+<!-- not working -->
+<form action="/shoes/<%= @shoe.id %>/add-stock" method="post">
+  <label for="add-stock">How many are you adding to the stock? :  </label>
+  <input type="number" name="add_stock" id="add-stock">
+
+  <input type="submit" value="Update stock">
+</form>
 
 <form action="/shoes/<%= @shoe.id %>/delete" method="post">
   <input type="submit" name="" value="Delete Entire Stock!">
