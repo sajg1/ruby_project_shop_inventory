@@ -5,10 +5,14 @@ require_relative('../models/brand')
 
 also_reload('../models/*')
 
+#INDEX
+
 get '/brands' do
   @brands = Brand.all()
   erb(:"brands/index")
 end
+
+#CREATE
 
 post '/brands' do
   @brand = Brand.new(params)
@@ -16,12 +20,15 @@ post '/brands' do
   redirect('/brands')
 end
 
+#NEW
 get '/brands/new' do
   erb(:"brands/new")
 end
 
-post '/brands' do
-  brand = Brand.new(params)
-  brand.save()
+#DELETE
+
+post '/brands/:id/delete' do
+  @brand = Brand.find_by_id(params['id'].to_i)
+  @brand.delete
   redirect('/brands')
 end

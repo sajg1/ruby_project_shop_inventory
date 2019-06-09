@@ -6,6 +6,16 @@
 <% @brands.each do |brand|  %>
 <p><%= brand.name %></p>
 <p>Show all brand products</p>
+
+<!-- Not funtional yet -->
+<form action="brands/<%= brand.id %>/edit " method="post">
+  <input type="submit" value="Edit Brand">
+</form>
+
+<form action="brands/<%= brand.id %>/delete" method="post">
+<input type="submit" value="Delete Brand">
+</form>
+
 <hr>
 <hr>
 <% end  %>
