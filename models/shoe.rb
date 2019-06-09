@@ -72,10 +72,10 @@ class Shoe
   end
 
   def stock_level()
-    if @stock_quantity > 1
+    if @stock_quantity > 15
+      return "Stock OK"
+    elsif @stock_quantity > 1
       return "Low Stock"
-    elsif @stock_quantity > 10
-      return
     else
       return "Out of Stock"
     end
