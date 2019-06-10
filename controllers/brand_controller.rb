@@ -22,13 +22,24 @@ post '/brands' do
 end
 
 #NEW
+
 get '/brands/new' do
   erb(:"brands/new")
 end
 
+#EDIT
+
 get '/brands/:id/edit' do
   @brand = Brand.find_by_id(params['id'].to_i)
   erb(:"brands/edit")
+end
+
+#UPDATE
+
+post '/brands/:id' do
+  brand = Brand.new(params)
+  brand.update()
+  redirect to "/brands/#{params['id']}"
 end
 
 #DELETE
