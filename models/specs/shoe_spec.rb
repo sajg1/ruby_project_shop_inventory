@@ -11,7 +11,7 @@ class ShoeTest < Minitest::Test
       'name' => 'Air Zoom Pegasus 36',
       'type' => 'Running',
       'stock_quantity' => 0,
-      'stock_cost' => 25,
+      'purchase_price' => 25,
       'selling_price' => 69
       })
 
@@ -29,8 +29,8 @@ class ShoeTest < Minitest::Test
     assert_equal(0, @shoe1.stock_quantity)
   end
 
-  def test_stock_cost
-    assert_equal(25, @shoe1.stock_cost)
+  def test_purchase_price
+    assert_equal(25, @shoe1.purchase_price)
   end
 
   def test_selling_price

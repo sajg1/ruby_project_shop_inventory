@@ -3,7 +3,7 @@ require_relative("./brand")
 
 class Shoe
 
-  attr_reader :id, :brand_id, :name, :type, :stock_cost
+  attr_reader :id, :brand_id, :name, :type, :purchase_price
   attr_accessor :stock_quantity, :selling_price
 
   def initialize(options)
@@ -11,7 +11,7 @@ class Shoe
     @name = options['name']
     @type = options['type']
     @stock_quantity = options['stock_quantity'].to_i
-    @stock_cost = options['stock_cost'].to_i
+    @purchase_price = options['purchase_price'].to_i
     @selling_price = options['selling_price'].to_i
     @brand_id = options['brand_id'].to_i
     @id = options['id'] if options['id'].to_i
@@ -23,13 +23,13 @@ class Shoe
   def save()
     sql = "INSERT INTO shoes
     (
-      name, type, stock_quantity, stock_cost, selling_price, brand_id
+      name, type, stock_quantity, purchase_price, selling_price, brand_id
     )
     VALUES
     (
       $1, $2, $3, $4, $5, $6
     ) RETURNING * "
-    values = [@name, @type, @stock_quantity, @stock_cost, @selling_price, @brand_id]
+    values = [@name, @type, @stock_quantity, @purchase_price, @selling_price, @brand_id]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -39,14 +39,14 @@ class Shoe
   def update()
     sql = "UPDATE shoes SET
     (
-      name, type, stock_quantity, stock_cost, selling_price, brand_id
+      name, type, stock_quantity, purchase_price, selling_price, brand_id
     )
     =
     (
       $1, $2, $3, $4, $5, $6
     )
     WHERE id = $7"
-    values = [@name, @type, @stock_quantity, @stock_cost, @selling_price, @brand_id, @id]
+    values = [@name, @type, @stock_quantity, @purchase_price, @selling_price, @brand_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -72,6 +72,7 @@ class Shoe
   end
 
   def stock_level()
+    # to display with colors, use return value of this method as a css class
     if @stock_quantity > 15
       return " "
     elsif @stock_quantity > 1
@@ -82,7 +83,7 @@ class Shoe
   end
 
   def markup()
-    markup =  @selling_price - @stock_cost
+    markup =  @selling_price - @purchase_price
     return markup
   end
 
@@ -94,7 +95,7 @@ class Shoe
     shoes_hash.map {|shoe| Shoe.new(shoe)}
   end
 
-  # Ask about error when an id that doesn't exist is typed in
+
   def self.find_by_id(id)
     sql = "SELECT * FROM shoes WHERE id = $1"
     values = [id]

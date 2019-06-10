@@ -12,7 +12,7 @@ CREATE TABLE shoes (
   name VARCHAR(255),
   type VARCHAR(255),
   stock_quantity INT4,
-  stock_cost INT4,
+  purchase_price INT4,
   selling_price INT4,
   brand_id INT4 REFERENCES brands(id) ON DELETE CASCADE
 );
