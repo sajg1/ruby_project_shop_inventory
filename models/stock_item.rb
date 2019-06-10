@@ -29,6 +29,8 @@ class StockItem
     @id = result['id'].to_i
   end
 
+#UPDATE
+
   def update()
     sql = "UPDATE stock_items SET
     (
@@ -39,6 +41,14 @@ class StockItem
      $1, $2
     ) WHERE id = $3"
     values = [@quantity, @shoe_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
+#DELETE
+
+  def delete()
+    sql = "DELETE FROM stock_items WHERE id = $1"
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
