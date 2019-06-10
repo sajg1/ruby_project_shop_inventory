@@ -29,6 +29,19 @@ class StockItem
     @id = result['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE stock_items SET
+    (
+      quantity, shoe_id
+    )
+    =
+    (
+     $1, $2
+    ) WHERE id = $3"
+    values = [@quantity, @shoe_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
 #READ
 
   def self.all()
