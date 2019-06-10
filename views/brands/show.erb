@@ -1,0 +1,9 @@
+<h2> <%= @brand.name %> </h2>
+
+<h3>Shoe models in stock by this brand</h3>
+
+<% @shoes.each do |shoe| %>
+  <% if (shoe.brand_id == @brand.id) %>
+  <p> <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a> </p>
+  <% end %>
+<% end %>

@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 
 require_relative('../models/brand')
+require_relative('../models/shoe')
 
 also_reload('../models/*')
 
@@ -31,4 +32,12 @@ post '/brands/:id/delete' do
   @brand = Brand.find_by_id(params['id'].to_i)
   @brand.delete
   redirect('/brands')
+end
+
+#SHOW
+
+get '/brands/:id' do
+  @brand = Brand.find_by_id(params['id'].to_i)
+  @shoes = Shoe.all()
+  erb(:"brands/show")
 end
