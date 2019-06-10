@@ -73,12 +73,17 @@ class Shoe
 
   def stock_level()
     if @stock_quantity > 15
-      return "Stock OK"
+      return " "
     elsif @stock_quantity > 1
       return "Low Stock"
     else
       return "Out of Stock"
     end
+  end
+
+  def markup()
+    markup =  @selling_price - @stock_cost
+    return markup
   end
 
 # READ

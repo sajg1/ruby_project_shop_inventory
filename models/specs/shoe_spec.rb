@@ -46,5 +46,9 @@ class ShoeTest < Minitest::Test
     assert_equal("Out of Stock", @shoe1.stock_level)
   end
 
+  def test_markup
+    assert_equal(44, @shoe1.markup)
+  end
+
 
 end
