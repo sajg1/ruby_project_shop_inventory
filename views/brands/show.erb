@@ -4,6 +4,20 @@
 
 <% @shoes.each do |shoe| %>
   <% if (shoe.brand_id == @brand.id) %>
-  <p> <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a> </p>
+    <hr>
+    <br>
+    <p> <a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a> </p>
+    <br>
+    <hr>
   <% end %>
 <% end %>
+
+<% if @brand.shoes() == [] %>
+  <hr>
+  <br>
+  <br>
+  <p>There are no shoes by this brand in your Inventory</p>
+  <br>
+  <br>
+  <hr>
+<% end  %>
