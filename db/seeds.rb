@@ -1,6 +1,8 @@
 require("pry-byebug")
 require_relative('../models/brand')
 require_relative('../models/shoe')
+require_relative('../models/stock_item')
+
 
 Brand.delete_all()
 
@@ -100,6 +102,14 @@ shoe5.save()
 shoe6.save()
 shoe7.save()
 shoe8.save()
+
+stock_item1 = StockItem.new({ 'quantity' => 40, 'shoe_id' => shoe1.id})
+stock_item2 = StockItem.new({ 'quantity' => 50, 'shoe_id' => shoe2.id})
+stock_item3 = StockItem.new({ 'quantity' => 60, 'shoe_id' => shoe3.id})
+
+stock_item1.save()
+stock_item2.save()
+stock_item3.save()
 
 binding.pry
 
