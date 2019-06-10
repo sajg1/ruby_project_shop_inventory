@@ -11,12 +11,13 @@
 <p><a href="/shoes/<%= shoe.id %>">Name: <%= shoe.name %></a></p>
 <p>Brand: <%= shoe.brand %> </p>
 <p>Type: <%= shoe.type %> </p>
-<p>Stock Quantity: <%= shoe.stock_quantity %>  - <%= shoe.stock_level %></p>
-<%= shoe.stock_level %>
+<p>Stock Quantity: <%= shoe.stock_quantity %></p>
+<p><%= shoe.stock_level %></p>
 <p>Stock Cost: £<%= shoe.stock_cost %>  </p>
 <p>Selling Price: £<%= shoe.selling_price %>  </p>
+<p>Markup: £ <%= shoe.markup %> </p>
 
-<!-- not funtioncal yet -->
+
 <form action="shoes/<%= shoe.id %>/edit" method="get">
   <input type="submit" value="Edit stock">
 </form>
