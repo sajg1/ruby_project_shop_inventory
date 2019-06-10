@@ -1,40 +1,33 @@
 <form action="/shoes" method="post">
 
-<ul>
-  <li>
+
     <label for="product-name">Shoe Name: </label>
     <input type="text" name="name" id="product-name">
-  </li>
+  <br>
 
-  <li>
     <label for="brand-select">Select Brand: </label>
     <select id="brand-select" name="brand_id">
       <% @brands.each do |brand| %>
         <option value="<%= brand.id %>"> <%= brand.name  %> </option>
         <% end %>
     </select>
-  </li>
+  <br>
 
-  <li>
     <label for="shoe-type">Shoe Type: </label>
     <input type="text" name="type" id="shoe-type">
-  </li>
+  <br>
 
-  <li>
     <label for="initial-stock">Initial Stock: </label>
     <input type="number" name="stock_quantity" id="initial-stock">
-  </li>
+  <br>
 
-  <li>
     <label for="stock-cost">Stock Cost: </label>
     <input type="number" name="stock_cost" id="stock-cost">
-  </li>
+  <br>
 
-  <li>
     <label for="sell-price">Selling Price: </label>
     <input type="number" name="selling_price" id="sell-price">
-  </li>
-</ul>
+  <br>
 
 <input type="submit" value="Add to Inventory">
 
