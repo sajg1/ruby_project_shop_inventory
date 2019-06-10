@@ -26,6 +26,11 @@ get '/brands/new' do
   erb(:"brands/new")
 end
 
+get '/brands/:id/edit' do
+  @brand = Brand.find_by_id(params['id'].to_i)
+  erb(:"brands/edit")
+end
+
 #DELETE
 
 post '/brands/:id/delete' do
