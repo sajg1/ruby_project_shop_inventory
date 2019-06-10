@@ -37,4 +37,11 @@ class StockItem
     stock_items.map { |stock_item| StockItem.new(stock_item)}
   end
 
+# DELETE
+
+  def self.delete_all()
+    sql = "DELETE FROM stock_items"
+    SqlRunner.run(sql)
+  end
+
 end

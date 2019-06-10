@@ -5,6 +5,8 @@ require_relative('../models/stock_item')
 
 
 Brand.delete_all()
+Shoe.delete_all()
+StockItem.delete_all()
 
 brand1 = Brand.new({
   "name" => "Nike"
