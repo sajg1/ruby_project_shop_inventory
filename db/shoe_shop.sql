@@ -15,7 +15,7 @@ CREATE TABLE shoes (
   stock_cost INT4,
   selling_price INT4,
   brand_id INT4 REFERENCES brands(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE stock_items (
   id SERIAL4 PRIMARY KEY,
