@@ -37,6 +37,15 @@ class StockItem
     stock_items.map { |stock_item| StockItem.new(stock_item)}
   end
 
+#READ
+
+  def self.find_by_id(id)
+    sql = "SELECT * FROM stock_items WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return StockItem.new(result)
+  end
+
 # DELETE
 
   def self.delete_all()
