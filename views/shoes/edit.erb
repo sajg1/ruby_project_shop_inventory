@@ -1,13 +1,17 @@
 <h2>Edit Shoe Details</h2>
 
-<form action="/shoes/ <%= @shoe.id %> " method="post">
+<form action="/shoes/<%= @shoe.id %> " method="post">
   <label for="name">Shoe Name: </label>
   <input type="text" name="name" id="name" value="<%= @shoe.name %>">
 
   <label for="brand-select">Brand: </label>
-  <select class="brand-select" name="brand_id">
+  <select id="brand-select" name="brand_id" selected=" <%= @shoe.brand_id %> ">
     <% @brands.each do |brand|  %>
-    <option value="<%= brand.id %>"> <%= brand.name %> </option>
+      <% if  brand.id == @shoe.brand_id %>
+      <option value=<%= brand.id %> selected> <%= brand.name %> </option>
+      <% else %>
+      <option value= <%= brand.id %>> <%= brand.name %> </option>
+      <% end  %>
     <% end  %>
 
   </select>
@@ -23,4 +27,6 @@
 
   <label for="selling-price">Selling Price: £</label>
   <input type="number" name="selling_price" id="selling-price" value="<%= @shoe.selling_price %>">
+
+  <input type="submit" value="Update Shoe Details">
 </form>

@@ -39,11 +39,11 @@ end
 
 # UPDATE
 
-# post '/shoes/:id/' do
-#   shoe = Shoe.new(params)
-#   shoe.update()
-#   redirect to "/shoes/#{params['id']}"
-# end
+post '/shoes/:id' do
+  shoe = Shoe.new(params)
+  shoe.update()
+  redirect to "/shoes/#{params['id']}"
+end
 
 #SHOW
 
