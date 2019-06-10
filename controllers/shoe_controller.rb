@@ -29,7 +29,21 @@ post '/shoes' do
   redirect('/shoes')
 end
 
+# EDIT
 
+get '/shoes/:id/edit' do
+  @shoe = Shoe.find_by_id(params['id'].to_i)
+  @brands = Brand.all()
+  erb(:"shoes/edit")
+end
+
+# UPDATE
+
+# post '/shoes/:id/' do
+#   shoe = Shoe.new(params)
+#   shoe.update()
+#   redirect to "/shoes/#{params['id']}"
+# end
 
 #SHOW
 
