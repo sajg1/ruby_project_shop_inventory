@@ -58,16 +58,16 @@ class StockItem
   #     update()
   #   end
   #
-  #   def stock_level()
-  #     # to display with colors, use return value of this method as a css class
-  #     if @quantity > 15
-  #       return " "
-  #     elsif @quantity > 1
-  #       return "Low Stock"
-  #     else
-  #       return "Out of Stock"
-  #     end
-  #   end
+    def stock_level()
+      # to display with colors, use return value of this method as a css class
+      if @quantity > 15
+        return " "
+      elsif @quantity > 1
+        return "Low Stock"
+      else
+        return "Out of Stock"
+      end
+    end
 
 
 #DELETE

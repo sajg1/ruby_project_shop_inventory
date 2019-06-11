@@ -8,6 +8,8 @@
     <th></th>
     <th>Current Stock</th>
     <th></th>
+    <th>Stock Level</th>
+    <th></th>
     <th>Add/Sold Stock</th>
   </tr>
   <% @stock_items.each do |stock_item|  %>
@@ -16,7 +18,9 @@
     <td></td>
     <td><a href="/brands"><%= stock_item.shoe.brand %></td>
     <td></td>
-    <td> <%= stock_item.quantity %> </td>
+    <td> <%= stock_item.quantity %></td>
+    <td></td>
+    <td> <%= stock_item.stock_level %></td>
   <% end %>
   </tr>
 
