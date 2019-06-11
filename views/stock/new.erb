@@ -1,0 +1,15 @@
+<p>Please add new stock for this product</p>
+
+<form action="/stock_items" method="post">
+
+<label for="shoe-select">Select Shoe: </label>
+<select class="shoe-select" name="shoe_id">
+<% @shoes.each do |shoe| %>
+  <option value="<%= shoe.id %> "> <%= shoe.name %> </option>
+<% end  %>
+</select>
+
+<input type="number" name="quantity" value="0">
+<input type="submit" value="Add Stock">
+
+</form>

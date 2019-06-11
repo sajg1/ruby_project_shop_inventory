@@ -1,5 +1,6 @@
 require_relative('../models/brand')
 require_relative('../models/shoe')
+require_relative('../models/stock_item')
 
 #INDEX
 
@@ -39,6 +40,8 @@ post '/shoes/:id' do
   shoe.update()
   redirect to "/shoes/#{params['id']}"
 end
+
+
 
 #SHOW
 
