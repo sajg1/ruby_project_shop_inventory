@@ -1,1 +1,22 @@
 <h1>Welcome to Stockist</h1>
+
+<table>
+  <tr>
+    <th>Shoe Name</th>
+    <th></th>
+    <th>Shoe Brand</th>
+    <th></th>
+    <th>Current Stock</th>
+    <th></th>
+    <th>Add/Sold Stock</th>
+  </tr>
+  <% @shoes.each do |shoe|  %>
+  <tr>
+    <td><a href="/shoes/<%= shoe.id %>"> <%= shoe.name %> </a></td>
+    <td></td>
+    <td><%= shoe.brand %></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>

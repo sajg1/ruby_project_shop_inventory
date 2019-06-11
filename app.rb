@@ -6,5 +6,6 @@ require_relative('controllers/brand_controller')
 
 
 get '/' do
+  @shoes = Shoe.all()
   erb(:index)
 end
