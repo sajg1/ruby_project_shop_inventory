@@ -33,9 +33,9 @@
     </td>
     <td></td>
     <td>
-      <form  action="/" method="post">
+      <form  action="/stock_items/ <%= stock_item.id %>/sell " method="post">
         <input type="number" name="amount" value="0">
-        <input type="submit" name="" value="Sell">
+        <input type="submit" value="Sell">
       </form>
     </td>
   <% end %>
