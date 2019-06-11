@@ -47,9 +47,10 @@ class StockItem
   def shoe()
     sql = "SELECT * FROM shoes WHERE id = $1"
     values = [@shoe_id]
-    result = SqlRunner.run(sql, values)
+    result = SqlRunner.run(sql, values).first
     return Shoe.new(result)
   end
+
 
   # #ask about how to incorporate this
   #   def add_stock(num)
@@ -83,6 +84,10 @@ class StockItem
     sql = "SELECT * FROM stock_items"
     stock_items = SqlRunner.run(sql)
     stock_items.map { |stock_item| StockItem.new(stock_item)}
+  end
+
+  def self.all_shoes()
+    sql = ""
   end
 
 #READ

@@ -10,13 +10,14 @@
     <th></th>
     <th>Add/Sold Stock</th>
   </tr>
-  <% @shoes.each do |shoe|  %>
+  <% @stock_items.each do |stock_item|  %>
   <tr>
-    <td><a href="/shoes/<%= shoe.id %>"> <%= shoe.name %> </a></td>
+    <td><%= stock_item.shoe.name %></td>
     <td></td>
-    <td><%= shoe.brand %></td>
+    <td><%= stock_item.shoe.brand %></td>
     <td></td>
-    <td></td>
-  </tr>
+    <td> <%= stock_item.quantity %> </td>
   <% end %>
+  </tr>
+
 </table>
