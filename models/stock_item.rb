@@ -52,12 +52,17 @@ class StockItem
   end
 
 
-  # #ask about how to incorporate this
-  #   def add_stock(num)
-  #     @quantity += num
-  #     update()
-  #   end
-  #
+  #ask about how to incorporate this
+    def add_stock(num)
+      @quantity += num
+      update()
+    end
+
+    def sell_stock(num)
+      @quantity -= num
+      update()
+    end
+
     def stock_level()
       # to display with colors, use return value of this method as a css class
       if @quantity > 15

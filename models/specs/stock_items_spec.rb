@@ -27,8 +27,18 @@ class StockItemTest < MiniTest::Test
     assert_equal(40, @stock_item1.quantity)
   end
 
-  def test_shoe
-    assert_equal(@shoe1, @stock_item1.shoe)
+  # def test_shoe
+  #   assert_equal(, @stock_item1.shoe)
+  # end
+
+  def test_add_stock
+      @stock_item1.add_stock(5)
+    assert_equal(45, @stock_item1.quantity)
+  end
+
+  def test_sell_stock
+    @stock_item1.sell_stock(5)
+    assert_equal(35, @stock_item1.quantity)
   end
 
 end
