@@ -1,10 +1,5 @@
-require('sinatra')
-require('sinatra/contrib/all')
-
-require_relative('../models/brand')
 require_relative('../models/shoe')
-
-also_reload('../models/*')
+require_relative('../models/brand')
 
 #INDEX
 
