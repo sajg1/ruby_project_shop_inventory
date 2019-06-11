@@ -7,13 +7,12 @@
 <hr>
 
 
-<!-- not functional yet -->
-<form action="/shoes/<%= @shoe.id %>" method="post">
-  <label for="add-stock">Stock to add: </label>
-  <input type="number" name="" id="add-stock">
-  <input type="submit" name="" value="Add new Stock">
+<form action="/shoes/<%= @shoe.id %>/edit " method="get">
+  <input type="submit" value="Edit Product">
 </form>
 
 <form action="/shoes/<%= @shoe.id %>/delete" method="post">
   <input type="submit" name="" value="Delete All Stock">
 </form>
+
+<hr>
