@@ -27,7 +27,7 @@ brand3.save()
 shoe1 = Shoe.new({
   'name' => 'Air Zoom Pegasus 36',
   'type' => 'Running',
-  'purchase_price' => 25,
+  'purchase_price' => 55,
   'selling_price' => 69,
   'brand_id' => brand1.id
   })
@@ -35,7 +35,7 @@ shoe1 = Shoe.new({
 shoe2 = Shoe.new({
   'name' => 'Kobe IV Protro',
   'type' => 'Basketball',
-  'purchase_price' => 30,
+  'purchase_price' => 70,
   'selling_price' => 89,
   'brand_id' => brand1.id
   })
@@ -43,7 +43,7 @@ shoe2 = Shoe.new({
 shoe3 = Shoe.new({
   'name' => 'Killington Low Chukka',
   'type' => 'Boot',
-  'purchase_price' => 40,
+  'purchase_price' => 58,
   'selling_price' => 66,
   'brand_id' => brand3.id
   })

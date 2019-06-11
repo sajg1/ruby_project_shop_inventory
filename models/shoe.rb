@@ -67,8 +67,9 @@ class Shoe
 
 
   def markup()
-    markup =  @selling_price - @purchase_price
-    return markup
+    markup_profit =  @selling_price - @purchase_price
+    markup_percentage = ((@selling_price- @purchase_price)/ @purchase_price * 100).to_f
+    return "£#{markup_profit} (#{markup_percentage}%)"
   end
 
 # READ

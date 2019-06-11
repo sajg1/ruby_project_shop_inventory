@@ -11,7 +11,7 @@ class ShoeTest < Minitest::Test
       'name' => 'Air Zoom Pegasus 36',
       'type' => 'Running',
       'purchase_price' => 25,
-      'selling_price' => 69
+      'selling_price' => 50
       })
 
   end
@@ -29,11 +29,11 @@ class ShoeTest < Minitest::Test
   end
 
   def test_selling_price
-    assert_equal(69, @shoe1.selling_price)
+    assert_equal(50, @shoe1.selling_price)
   end
 
   def test_markup
-    assert_equal(44, @shoe1.markup)
+    assert_equal("£25 (100%)", @shoe1.markup)
   end
 
 
