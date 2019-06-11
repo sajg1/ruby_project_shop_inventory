@@ -12,9 +12,9 @@
   </tr>
   <% @stock_items.each do |stock_item|  %>
   <tr>
-    <td><%= stock_item.shoe.name %></td>
+    <td><a href="/shoes/<%= stock_item.shoe.id %>"><%= stock_item.shoe.name %></a></td>
     <td></td>
-    <td><%= stock_item.shoe.brand %></td>
+    <td><a href="/brands"><%= stock_item.shoe.brand %></td>
     <td></td>
     <td> <%= stock_item.quantity %> </td>
   <% end %>
