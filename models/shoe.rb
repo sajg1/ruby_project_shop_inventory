@@ -1,16 +1,16 @@
 require_relative("../db/sql_runner")
 require_relative("./brand")
+require_relative("./stock_item")
 
 class Shoe
 
   attr_reader :id, :brand_id, :name, :type, :purchase_price
-  attr_accessor :stock_quantity, :selling_price
+  attr_accessor :selling_price
 
   def initialize(options)
 
     @name = options['name']
     @type = options['type']
-    @stock_quantity = options['stock_quantity'].to_i
     @purchase_price = options['purchase_price'].to_i
     @selling_price = options['selling_price'].to_i
     @brand_id = options['brand_id'].to_i
@@ -23,13 +23,13 @@ class Shoe
   def save()
     sql = "INSERT INTO shoes
     (
-      name, type, stock_quantity, purchase_price, selling_price, brand_id
+      name, type, purchase_price, selling_price, brand_id
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     ) RETURNING * "
-    values = [@name, @type, @stock_quantity, @purchase_price, @selling_price, @brand_id]
+    values = [@name, @type, @purchase_price, @selling_price, @brand_id]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -39,14 +39,14 @@ class Shoe
   def update()
     sql = "UPDATE shoes SET
     (
-      name, type, stock_quantity, purchase_price, selling_price, brand_id
+      name, type, purchase_price, selling_price, brand_id
     )
     =
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     )
-    WHERE id = $7"
-    values = [@name, @type, @stock_quantity, @purchase_price, @selling_price, @brand_id, @id]
+    WHERE id = $6"
+    values = [@name, @type, @purchase_price, @selling_price, @brand_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -65,22 +65,6 @@ class Shoe
     return Brand.new(product_brand).name
   end
 
-#ask about how to incorporate this
-  def add_stock(num)
-    @stock_quantity += num
-    update()
-  end
-
-  def stock_level()
-    # to display with colors, use return value of this method as a css class
-    if @stock_quantity > 15
-      return " "
-    elsif @stock_quantity > 1
-      return "Low Stock"
-    else
-      return "Out of Stock"
-    end
-  end
 
   def markup()
     markup =  @selling_price - @purchase_price

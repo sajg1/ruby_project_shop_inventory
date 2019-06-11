@@ -44,6 +44,31 @@ class StockItem
     SqlRunner.run(sql, values)
   end
 
+  def shoe()
+    sql = "SELECT * FROM shoes WHERE id = $1"
+    values = [@shoe_id]
+    result = SqlRunner.run(sql, values)
+    return Shoe.new(result)
+  end
+
+  # #ask about how to incorporate this
+  #   def add_stock(num)
+  #     @quantity += num
+  #     update()
+  #   end
+  #
+  #   def stock_level()
+  #     # to display with colors, use return value of this method as a css class
+  #     if @quantity > 15
+  #       return " "
+  #     elsif @quantity > 1
+  #       return "Low Stock"
+  #     else
+  #       return "Out of Stock"
+  #     end
+  #   end
+
+
 #DELETE
 
   def delete()
