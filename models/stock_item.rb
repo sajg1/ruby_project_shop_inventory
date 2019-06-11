@@ -53,13 +53,13 @@ class StockItem
 
 
   #ask about how to incorporate this
-    def add_stock(num)
-      @quantity += num
+    def add_stock(amount)
+      @quantity += amount
       update()
     end
 
-    def sell_stock(num)
-      @quantity -= num
+    def sell_stock(amount)
+      @quantity -= amount
       update()
     end
 

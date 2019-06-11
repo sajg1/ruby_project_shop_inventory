@@ -10,7 +10,9 @@
     <th></th>
     <th>Stock Level</th>
     <th></th>
-    <th>Add/Sold Stock</th>
+    <th>Buy Stock</th>
+    <th></th>
+    <th>Sell Stock</th>
   </tr>
   <% @stock_items.each do |stock_item|  %>
   <tr>
@@ -21,6 +23,21 @@
     <td> <%= stock_item.quantity %></td>
     <td></td>
     <td> <%= stock_item.stock_level %></td>
+    <td></td>
+    <td>
+      <!-- give this a proper action in the form -->
+      <form  action="/stock_items/<%= stock_item.id %>/buy" method="post">
+        <input type="number" name="amount" value="0">
+        <input type="submit" value="Buy">
+      </form>
+    </td>
+    <td></td>
+    <td>
+      <form  action="/" method="post">
+        <input type="number" name="amount" value="0">
+        <input type="submit" name="" value="Sell">
+      </form>
+    </td>
   <% end %>
   </tr>
 
