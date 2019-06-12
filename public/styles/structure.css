@@ -6,6 +6,7 @@ body {
 };
 
 
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
   margin: 0px;
@@ -20,6 +21,7 @@ a, a:link, a:visited {
 a:hover, a:active, a:focus {
   color: #C2571A;
 }
+
 
 nav {
   margin: 0px;
@@ -37,4 +39,12 @@ main {
 
 .flex {
   display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+hr {
+  color: white;
 }
