@@ -18,7 +18,7 @@
   </tr>
   <% @shoes.each do |shoe| %>
   <tr>
-    <td><a href="/shoes/<%= shoe.id %>">Name: <%= shoe.name %></a></td>
+    <td><a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></td>
     <td></td>
     <td><%= shoe.brand %></td>
     <td></td>

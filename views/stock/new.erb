@@ -4,9 +4,9 @@
 
 <label for="shoe-select">Select Shoe: </label>
 <select class="shoe-select" name="shoe_id">
-<% @shoes.each do |shoe| %>
-  <option value="<%= shoe.id %> "> <%= shoe.name %> </option>
-<% end  %>
+  <% @shoes.each do |shoe| %>
+    <option value="<%= shoe.id %> "> <%= shoe.name %> </option>
+  <% end  %>
 </select>
 
 <input type="number" min="0" name="quantity" value="0">

@@ -16,7 +16,7 @@ end
 
 #new
 get '/stock_items/new' do
-  @shoes = Shoe.all()
+  @shoes = Shoe.all_without_existing_stock()
   erb(:"stock/new")
 end
 

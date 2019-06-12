@@ -65,19 +65,20 @@ class Shoe
     return Brand.new(product_brand).name
   end
 
-  def stock_count()
-    sql = "SELECT stock_items.quantity FROM stock_items
-    WHERE shoe_id = $1"
+  def no_stock?()
+    sql = "SELECT * FROM stock_items WHERE shoe_id = $1"
     values = [@id]
-    result = SqlRunner.run(sql, values).first
-    return result['quantity'].to_i
+    result = SqlRunner.run(sql, values)
+    # Checking if the PG result object has any ntuples returned
+    # ntuples is zero if we can't find anything matching for our SQL
+    # If it's zero then we have no stock created for said shoe
+    return result.ntuples.zero?
   end
-
 
   def markup()
     markup_profit =  @selling_price - @purchase_price
     markup_percentage = ((@selling_price- @purchase_price).to_f/ @purchase_price * 100).round(2)
-    return "£#{markup_profit} (#{markup_percentage}%)"
+    return "£#{markup_profit} ( #{markup_percentage} % )"
   end
 
 # READ
@@ -108,6 +109,12 @@ class Shoe
   def self.delete_all()
     sql = "DELETE FROM shoes"
     SqlRunner.run(sql)
+  end
+
+  def self.all_without_existing_stock()
+    shoes = self.all()
+    #Using shoe.select to return and array of shoe objects that currently have no stock
+    return shoes.select {|shoe| shoe.no_stock? }
   end
 
 end
