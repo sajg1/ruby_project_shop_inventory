@@ -3,23 +3,23 @@
 <table>
   <tr>
     <th>Shoe Name</th>
-    <th></th>
+
     <th>Shoe Brand</th>
-    <th></th>
+
     <th>Current Stock</th>
-    <th></th>
+
     <th>Stock Level</th>
-    <th></th>
+
     <th>Buy Stock</th>
-    <th></th>
+
     <th>Sell Stock</th>
   </tr>
   <% @stock_items.each do |stock_item|  %>
   <tr>
     <td><a href="/shoes/<%= stock_item.shoe.id %>"><%= stock_item.shoe.name %></a></td>
-    <td></td>
+
     <td><a href="/brands"><%= stock_item.shoe.brand %></td>
-    <td></td>
+
     <td>
       <% if stock_item.stock_level == "Ok" %>
         <p id="green" ><%= stock_item.quantity %></p>
@@ -29,9 +29,8 @@
         <p id="red"> <%= stock_item.quantity %></p>
       <% end %>
     </td>
-    <td></td>
+
     <td> <%= stock_item.stock_level %></td>
-    <td></td>
     <td>
       <!-- give this a proper action in the form -->
       <form  action="/stock_items/<%= stock_item.id %>/buy" method="post">
@@ -39,7 +38,6 @@
         <input type="submit" value="Buy">
       </form>
     </td>
-    <td></td>
     <td>
       <form  action="/stock_items/ <%= stock_item.id %>/sell " method="post">
         <input type="number" min= "0" name="amount" value="0">

@@ -10,19 +10,14 @@
 <table>
   <tr>
     <th>Shoe Name</th>
-    <th></th>
     <th>Shoe Brand</th>
-    <th></th>
     <th>Shoe Type</th>
   </tr>
   <% @shoes.each do |shoe| %>
   <tr>
     <td><a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></td>
-    <td></td>
     <td><%= shoe.brand %></td>
-    <td></td>
     <td><%= shoe.type %></td>
-    <td></td>
   </tr>
 <% end %>
 </table>

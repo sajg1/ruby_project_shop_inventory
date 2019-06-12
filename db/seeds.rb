@@ -20,9 +20,14 @@ brand3 = Brand.new({
   "name" => "Timberland"
   })
 
+brand4 = Brand.new({
+  "name" => "Reebok"
+  })
+
 brand1.save()
 brand2.save()
 brand3.save()
+brand4.save()
 
 shoe1 = Shoe.new({
   'name' => 'Air Zoom Pegasus 36',
@@ -57,11 +62,11 @@ shoe4 = Shoe.new({
   })
 
 shoe5 = Shoe.new({
-  'name' => 'Lounge',
-  'type' => 'Slipper',
-  'purchase_price' => 10,
-  'selling_price' => 25,
-  'brand_id' => brand3.id
+  'name' => 'Predator 19+',
+  'type' => 'Football Boot',
+  'purchase_price' => 45,
+  'selling_price' => 69,
+  'brand_id' => brand2.id
   })
 
 shoe1.save()
@@ -72,8 +77,8 @@ shoe5.save()
 
 
 stock_item1 = StockItem.new({ 'quantity' => 0, 'shoe_id' => shoe1.id})
-stock_item2 = StockItem.new({ 'quantity' => 4, 'shoe_id' => shoe2.id})
-stock_item3 = StockItem.new({ 'quantity' => 60, 'shoe_id' => shoe3.id})
+stock_item2 = StockItem.new({ 'quantity' => 10, 'shoe_id' => shoe2.id})
+stock_item3 = StockItem.new({ 'quantity' => 30, 'shoe_id' => shoe3.id})
 stock_item4 = StockItem.new({ 'quantity' => 20, 'shoe_id' => shoe4.id})
 
 
