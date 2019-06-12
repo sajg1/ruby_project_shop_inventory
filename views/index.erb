@@ -32,7 +32,7 @@
 
     <td> <%= stock_item.stock_level %></td>
     <td>
-      <!-- give this a proper action in the form -->
+    
       <form  action="/stock_items/<%= stock_item.id %>/buy" method="post">
         <input type="number" min="0" name="amount" value="0">
         <input type="submit" value="Buy">

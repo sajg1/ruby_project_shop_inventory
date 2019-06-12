@@ -63,7 +63,7 @@ class StockItem
     end
 
     def stock_level()
-      # to display with colors, use return value of this method as a css class
+  
       if @quantity > 15
         return "Ok"
       elsif @quantity > 1

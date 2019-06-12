@@ -73,7 +73,7 @@ class Brand
     brands.map {|brand| Brand.new(brand)}
   end
 
-# Ask about error when an id that doesn't exist is typed in
+
     def self.find_by_id(id)
       sql = "SELECT * FROM brands WHERE id = $1"
       values = [id]

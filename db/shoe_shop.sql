@@ -21,10 +21,3 @@ CREATE TABLE stock_items (
   quantity INT4,
   shoe_id INT4 REFERENCES shoes(id) ON DELETE CASCADE
 )
-
-
--- create table stock_items (
---   id
---   shoe_id
---   quantity
--- )
