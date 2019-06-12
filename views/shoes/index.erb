@@ -15,12 +15,6 @@
     <th>Shoe Brand</th>
     <th></th>
     <th>Shoe Type</th>
-    <th></th>
-    <th>Purchase Price</th>
-    <th></th>
-    <th>Selling Price</th>
-    <th></th>
-    <th>Markup</th>
   </tr>
   <% @shoes.each do |shoe| %>
   <tr>
@@ -30,22 +24,6 @@
     <td></td>
     <td><%= shoe.type %></td>
     <td></td>
-    <td>£<%= shoe.purchase_price %></td>
-    <td></td>
-    <td>£<%= shoe.selling_price %></td>
-    <td></td>
-    <td><%= shoe.markup %></td>  
   </tr>
 <% end %>
 </table>
-
-<!-- <p></p>
-<p>Brand:  </p>
-<p>Type:  </p>
-<p>Purchase Price:   </p>
-<p>Selling Price:   </p>
-<p>Markup:  </p>
-
-
-<hr>
-<hr> -->
