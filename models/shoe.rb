@@ -65,6 +65,14 @@ class Shoe
     return Brand.new(product_brand).name
   end
 
+  def stock_count()
+    sql = "SELECT stock_items.quantity FROM stock_items
+    WHERE shoe_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return result['quantity'].to_i
+  end
+
 
   def markup()
     markup_profit =  @selling_price - @purchase_price
