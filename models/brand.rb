@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./shoe')
+require_relative('./stock_item')
 
 class Brand
 
@@ -50,6 +51,18 @@ class Brand
     values = [@id]
     shoes_hash = SqlRunner.run(sql, values)
     shoes_hash.map {|shoe| Shoe.new(shoe)}
+  end
+
+  def stock_items()
+    sql = "SELECT stock_items.quantity FROM stock_items
+    INNER JOIN shoes
+    ON shoes.id = stock_items.shoe_id
+    INNER JOIN brands
+    ON brands.id = shoes.brand_id
+    WHERE brands.id = $1"
+    values = [@id]
+    stock_items = SqlRunner.run(sql, values).first
+    return StockItem.new(stock_items)
   end
 
 # READ

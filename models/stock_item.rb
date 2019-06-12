@@ -52,7 +52,6 @@ class StockItem
   end
 
 
-  #ask about how to incorporate this
     def add_stock(amount)
       @quantity += amount
       update()
@@ -72,6 +71,18 @@ class StockItem
       else
         return "Out of Stock"
       end
+    end
+
+    def brand()
+      sql = "SELECT brands.name FROM brands
+      INNER JOIN shoes
+      ON shoes.brand_id = brands.id
+      INNER JOIN stock_items
+      ON shoes.id = stock_items.shoe_id
+      WHERE shoes.id = $1"
+      values = [@shoe_id]
+      brand = SqlRunner.run(sql, values).first
+      return Brand.new(brand)
     end
 
 

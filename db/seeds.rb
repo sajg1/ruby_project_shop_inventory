@@ -48,15 +48,33 @@ shoe3 = Shoe.new({
   'brand_id' => brand3.id
   })
 
+shoe4 = Shoe.new({
+  'name' => 'Power 12',
+  'type' => 'Weightlifting',
+  'purchase_price' => 60,
+  'selling_price' => 100,
+  'brand_id' => brand2.id
+  })
+
 shoe1.save()
 shoe2.save()
 shoe3.save()
+shoe4.save()
 
 
 stock_item1 = StockItem.new({ 'quantity' => 0, 'shoe_id' => shoe1.id})
 stock_item2 = StockItem.new({ 'quantity' => 4, 'shoe_id' => shoe2.id})
 stock_item3 = StockItem.new({ 'quantity' => 60, 'shoe_id' => shoe3.id})
+stock_item4 = StockItem.new({ 'quantity' => 20, 'shoe_id' => shoe4.id})
+
 
 stock_item1.save()
 stock_item2.save()
 stock_item3.save()
+stock_item4.save()
+
+
+
+binding.pry
+
+nil
