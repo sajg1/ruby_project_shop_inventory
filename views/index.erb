@@ -27,14 +27,14 @@
     <td>
       <!-- give this a proper action in the form -->
       <form  action="/stock_items/<%= stock_item.id %>/buy" method="post">
-        <input type="number" name="amount" value="0">
+        <input type="number" min="0" name="amount" value="0">
         <input type="submit" value="Buy">
       </form>
     </td>
     <td></td>
     <td>
       <form  action="/stock_items/ <%= stock_item.id %>/sell " method="post">
-        <input type="number" name="amount" value="0">
+        <input type="number" min= "0" name="amount" value="0">
         <input type="submit" value="Sell">
       </form>
     </td>
