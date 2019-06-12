@@ -1,0 +1,25 @@
+body {
+  background-image: url('../images/background.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  font-family: 'Lato', sans-serif;
+};
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #9A2617;
+}
+
+a:hover, a:active, a:focus {
+  color: #C2571A;
+}
+
+nav, ul {
+  list-style: none;
+}
