@@ -56,10 +56,19 @@ shoe4 = Shoe.new({
   'brand_id' => brand2.id
   })
 
+shoe5 = Shoe.new({
+  'name' => 'Lounge',
+  'type' => 'Slipper',
+  'purchase_price' => 10,
+  'selling_price' => 25,
+  'brand_id' => brand3.id
+  })
+
 shoe1.save()
 shoe2.save()
 shoe3.save()
 shoe4.save()
+shoe5.save()
 
 
 stock_item1 = StockItem.new({ 'quantity' => 0, 'shoe_id' => shoe1.id})
