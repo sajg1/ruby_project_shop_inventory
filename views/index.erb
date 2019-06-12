@@ -20,7 +20,15 @@
     <td></td>
     <td><a href="/brands"><%= stock_item.shoe.brand %></td>
     <td></td>
-    <td> <%= stock_item.quantity %></td>
+    <td>
+      <% if stock_item.stock_level == "Ok" %>
+        <p id="green" ><%= stock_item.quantity %></p>
+      <% elsif stock_item.stock_level == "Low Stock" %>
+        <p id="orange"><%= stock_item.quantity %> </p>
+      <% else %>
+        <p id="red"> <%= stock_item.quantity %></p>
+      <% end %>
+    </td>
     <td></td>
     <td> <%= stock_item.stock_level %></td>
     <td></td>
