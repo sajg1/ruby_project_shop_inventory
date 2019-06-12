@@ -53,7 +53,7 @@ class Brand
     shoes_hash.map {|shoe| Shoe.new(shoe)}
   end
 
-  def stock_items()
+  def count_stock()
     sql = "SELECT stock_items.quantity FROM stock_items
     INNER JOIN shoes
     ON shoes.id = stock_items.shoe_id
@@ -61,8 +61,8 @@ class Brand
     ON brands.id = shoes.brand_id
     WHERE brands.id = $1"
     values = [@id]
-    stock_items = SqlRunner.run(sql, values).first
-    return StockItem.new(stock_items)
+    results = SqlRunner.run(sql, values)
+    return results.reduce(0) {|sum, result| sum + result["quantity"].to_i }
   end
 
 # READ
