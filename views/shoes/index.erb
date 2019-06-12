@@ -8,16 +8,44 @@
 <h3><a href="/stock_items/new">Add Stock</a></h3>
 
 <hr>
-
-<% @shoes.each do |shoe| %>
-<p><a href="/shoes/<%= shoe.id %>">Name: <%= shoe.name %></a></p>
-<p>Brand: <%= shoe.brand %> </p>
-<p>Type: <%= shoe.type %> </p>
-<p>Purchase Price: £<%= shoe.purchase_price %>  </p>
-<p>Selling Price: £<%= shoe.selling_price %>  </p>
-<p>Markup: <%= shoe.markup %> </p>
-
-
-<hr>
-<hr>
+<table>
+  <tr>
+    <th>Shoe Name</th>
+    <th></th>
+    <th>Shoe Brand</th>
+    <th></th>
+    <th>Shoe Type</th>
+    <th></th>
+    <th>Purchase Price</th>
+    <th></th>
+    <th>Selling Price</th>
+    <th></th>
+    <th>Markup</th>
+  </tr>
+  <% @shoes.each do |shoe| %>
+  <tr>
+    <td><a href="/shoes/<%= shoe.id %>">Name: <%= shoe.name %></a></td>
+    <td></td>
+    <td><%= shoe.brand %></td>
+    <td></td>
+    <td><%= shoe.type %></td>
+    <td></td>
+    <td>£<%= shoe.purchase_price %></td>
+    <td></td>
+    <td>£<%= shoe.selling_price %></td>
+    <td></td>
+    <td><%= shoe.markup %></td>  
+  </tr>
 <% end %>
+</table>
+
+<!-- <p></p>
+<p>Brand:  </p>
+<p>Type:  </p>
+<p>Purchase Price:   </p>
+<p>Selling Price:   </p>
+<p>Markup:  </p>
+
+
+<hr>
+<hr> -->
