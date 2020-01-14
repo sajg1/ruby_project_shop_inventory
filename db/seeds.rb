@@ -1,4 +1,4 @@
-require("pry-byebug")
+
 require_relative('../models/brand')
 require_relative('../models/shoe')
 require_relative('../models/stock_item')
@@ -89,6 +89,5 @@ stock_item4.save()
 
 
 
-binding.pry
 
 nil
